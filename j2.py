@@ -29,11 +29,12 @@ print(boite.getlargeur())
 
 # JOB 2
 class Livre:
-    def __init__(self, titre, auteur, nbdepage, disponible=True):
+    def __init__(self, titre, auteur, nbdepage,level , disponible=True):
         self.__titre = titre
         self.__auteur = auteur
         self.__nbdepage = nbdepage
         self.__disponible = disponible
+        self.__level = level
 
     def gettitre(self):
         return self.__titre
@@ -79,6 +80,51 @@ class Livre:
 
 
 # JOB 4
+class Student:
+    def __init__(self, nom, prenom, numeroetudiant, nombredecredit=0):
+        self.__nom = nom
+        self.__prenom = prenom
+        self.__numeroetudiant = numeroetudiant
+        self.__nombredecredit = nombredecredit
+        self.__level = self.__studenteval()
+
+    def add_credits(self,i):
+        if i >= 0:
+            self.__nombredecredit = i
+        else:
+            pass
+        return self.__nombredecredit
+
+    def showcredits(self):
+        return self.__nombredecredit
+
+    def __studenteval(self):
+        if self.__nombredecredit >= 90:
+            return "Excellent"
+        elif self.__nombredecredit >= 80:
+            return "Très bien"
+        elif self.__nombredecredit >= 70:
+            return "Bien"
+        elif self.__nombredecredit >= 60:
+            return "Passable"
+        elif self.__nombredecredit < 60:
+            return "Insuffisant"
+
+    def getstudentinfo(self):
+        return [f"Nom = {self.__prenom}",f"Pénom = {self.__nom}",f"ID = {self.__numeroetudiant}",f"Niveau = {self.__level}"]
 
 
+John = Student("John","Doe",145)
+John.add_credits(30)
+print(f"Le nombre de crédits de John Doe est de {John.showcredits()} points")
+print(John.getstudentinfo())
 
+
+# JOB 5
+class Voiture():
+    def __init__(self, marque, modele, annee,km):
+        self.marque = marque
+        self.modele = modele
+        self.annee = annee
+        self.km = km
+        self.en_marche = False
