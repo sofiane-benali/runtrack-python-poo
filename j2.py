@@ -81,11 +81,11 @@ class Livre:
 
 # JOB 4
 class Student:
-    def __init__(self, nom, prenom, numeroetudiant, nombredecredit=0):
+    def __init__(self, nom, prenom, numeroetudiant):
         self.__nom = nom
         self.__prenom = prenom
         self.__numeroetudiant = numeroetudiant
-        self.__nombredecredit = nombredecredit
+        self.__nombredecredit = 0
         self.__level = self.__studenteval()
 
     def add_credits(self,i):
@@ -135,13 +135,13 @@ class Voiture():
             return self.__en_marche == True
 
     def arreter(self):
-        if self.__en_marche == True:
+        if self.__en_marche:
             return self.__en_marche == False
 
     def __verifier_plein(self):
         return self.__reservoir
 
-
+voiture = Voiture("peugeot", "208", 2020, 20)
 # JOB 6
 class Commande:
     def __init__(self, numerodecommande):
