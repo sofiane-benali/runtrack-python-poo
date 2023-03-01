@@ -144,27 +144,26 @@ class Voiture():
 
 # JOB 6
 class Commande:
-    def __init__(self, numerodecommande, statutdecommande):
+    def __init__(self, numerodecommande):
         self.__numerodecommande = numerodecommande
         self.__listedeplatscommande = {}
-        self.__statutdecommande = statutdecommande
+        self.__statutdecommande = "en cours"
 
     def addplat(self,nom,prix):
-        i = str(nom) + int(prix)
-        i += self.__listedeplatscommande
+        self.__listedeplatscommande[f"{nom}"]=prix
         return self.__listedeplatscommande
 
     def supprcommande(self):
-        for i in enumerate(self.__listedeplatscommande):
-            del self.__listedeplatscommande[i]
+        return self.__listedeplatscommande.clear()
 
     def calculertotal(self):
-
-
-    def totalpanier(self):
         pass
 
+    def totalpanier(self):
+        return self.__listedeplatscommande
 
 
 
-
+commandedusoir = Commande(133)
+commandedusoir.addplat("pizza",11)
+print(commandedusoir.totalpanier())
