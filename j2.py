@@ -123,8 +123,48 @@ print(John.getstudentinfo())
 # JOB 5
 class Voiture():
     def __init__(self, marque, modele, annee,km):
-        self.marque = marque
-        self.modele = modele
-        self.annee = annee
-        self.km = km
-        self.en_marche = False
+        self.__marque = marque
+        self.__modele = modele
+        self.__annee = annee
+        self.__km = km
+        self.__en_marche = False
+        self.__reservoir = 50
+
+    def demarrer(self):
+        if self.__en_marche == False and self.__verifier_plein() >= 5:
+            return self.__en_marche == True
+
+    def arreter(self):
+        if self.__en_marche == True:
+            return self.__en_marche == False
+
+    def __verifier_plein(self):
+        return self.__reservoir
+
+
+# JOB 6
+class Commande:
+    def __init__(self, numerodecommande, statutdecommande):
+        self.__numerodecommande = numerodecommande
+        self.__listedeplatscommande = {}
+        self.__statutdecommande = statutdecommande
+
+    def addplat(self,nom,prix):
+        i = str(nom) + int(prix)
+        i += self.__listedeplatscommande
+        return self.__listedeplatscommande
+
+    def supprcommande(self):
+        for i in enumerate(self.__listedeplatscommande):
+            del self.__listedeplatscommande[i]
+
+    def calculertotal(self):
+
+
+    def totalpanier(self):
+        pass
+
+
+
+
+
